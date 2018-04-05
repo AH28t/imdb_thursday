@@ -18,8 +18,20 @@
       <% @bookmarks.each do |bookmark| %>
       <tr>
         <td><%= bookmark.rank %></td>
-        <td><%= bookmark.movie.titles %></td>
-        <td><%= bookmark.user.created_at %></td>
+        <td>
+          <% if bookmark.movie.present? %>
+            <a href="/movies/<%= bookmark.movie.id %>">
+              <%= bookmark.movie.titles %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if bookmark.user.present? %>
+            <a href="/users/<%= bookmark.user.id %>">
+              <%= bookmark.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           

@@ -9,10 +9,22 @@
       <dd><%= @bookmark.rank %></dd>
 
       <dt>Movie</dt>
-      <dd><%= @bookmark.movie_id %></dd>
+      <dd>
+        <% if @bookmark.movie.present? %>
+          <a href="/movies/<%= @bookmark.movie_id %>">
+            <%= @bookmark.movie.titles %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <a href="/users/<%= @bookmark.user_id %>">
+            <%= @bookmark.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
